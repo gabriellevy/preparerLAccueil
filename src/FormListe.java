@@ -75,7 +75,6 @@ public class FormListe {
 
             while( ( ligne = buffer.readLine() ) != null )
             {
-                //System.out.println( ligne ) ;
                 strComplete.append(ligne);
             }
 
@@ -115,7 +114,6 @@ public class FormListe {
         boutonSauver.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("boutonSauver");
 
                 try {
                     FileWriter file = new FileWriter( chemin );
@@ -125,12 +123,10 @@ public class FormListe {
                     String donnees = "";
                     for (JCheckBox checkB : coches) {
                         String donnee = checkB.isSelected()?"1":"0";
-                        System.out.println("checkB : " + donnee);
                         donnees = donnees + donnee + separateur;
                     }
                     for (JTextField tx : notes) {
                         String donnee = tx.getText();
-                        System.out.println("tx : " + donnee);
                         if (donnee.isEmpty())
                             donnee = " ";
                         donnees = donnees + donnee + separateur;

@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1e953f89-bbb1-4cb6-9e31-fec26ec07611" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FormListe.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/FormListe.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donnees/taches.txt" beforeDir="false" afterPath="$PROJECT_DIR$/donnees/taches.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FormListe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FormListe.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
