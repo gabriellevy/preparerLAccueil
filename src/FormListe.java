@@ -6,8 +6,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class FormListe {
-    private static String chemin = "D:\\boulot\\java\\preparerLAccueil\\donnees\\taches.txt";
-    private static String separateur = ";";
+    private static final String chemin = "./taches.txt";
+    private static final String separateur = ";";
 
     private JPanel panRacine;
     private JButton remetAZero;
@@ -99,47 +99,41 @@ public class FormListe {
             }
         }
 
-        remetAZero.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("remetAZero");
-                for (JCheckBox checkB : coches) {
-                    checkB.setSelected(false);
-                }
-                for (JTextField tx : notes) {
-                    tx.setText("");
-                }
+        remetAZero.addActionListener(e -> {
+            System.out.println("remetAZero");
+            for (JCheckBox checkB : coches) {
+                checkB.setSelected(false);
+            }
+            for (JTextField tx : notes) {
+                tx.setText("");
             }
         });
-        boutonSauver.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        boutonSauver.addActionListener(e -> {
 
-                try {
-                    FileWriter file = new FileWriter( chemin );
-                    BufferedWriter buffer = new BufferedWriter( file ) ;
+            try {
+                FileWriter file = new FileWriter( chemin );
+                BufferedWriter buffer = new BufferedWriter( file ) ;
 
-                    // sauver donnees :
-                    String donnees = "";
-                    for (JCheckBox checkB : coches) {
-                        String donnee = checkB.isSelected()?"1":"0";
-                        donnees = donnees + donnee + separateur;
-                    }
-                    for (JTextField tx : notes) {
-                        String donnee = tx.getText();
-                        if (donnee.isEmpty())
-                            donnee = " ";
-                        donnees = donnees + donnee + separateur;
-                    }
-                    System.out.println("donnees : " + donnees);
-                    buffer.write( donnees ) ;
-                    buffer.newLine();
-                    buffer.close();
+                // sauver donnees :
+                StringBuilder donnees = new StringBuilder();
+                for (JCheckBox checkB : coches) {
+                    String donnee = checkB.isSelected()?"1":"0";
+                    donnees.append(donnee).append(separateur);
                 }
-                catch ( IOException e2 )
-                { /*Insert error message here*/ }
-
+                for (JTextField tx : notes) {
+                    String donnee = tx.getText();
+                    if (donnee.isEmpty())
+                        donnee = " ";
+                    donnees.append(donnee).append(separateur);
+                }
+                System.out.println("donnees : " + donnees);
+                buffer.write(donnees.toString()) ;
+                buffer.newLine();
+                buffer.close();
             }
+            catch ( IOException e2 )
+            { /*Insert error message here*/ }
+
         });
     }
 

@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact name="preparerAccueil">
+    <output-path>$PROJECT_DIR$/out/artifacts/preparerAccueil</output-path>
+    <root id="root">
+      <element id="archive" name="preparerAccueil.jar" />
+      <element id="archive" name="preparerLAccueil.jar">
+        <element id="module-output" name="preparerLAccueil" />
+      </element>
+    </root>
+  </artifact>
+</component>
